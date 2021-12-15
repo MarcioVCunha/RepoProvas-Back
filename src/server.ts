@@ -1,7 +1,10 @@
 /* eslint-disable no-console */
-import './setup';
-import app from './app';
+import app, { init } from './app';
 
-const { PORT } = process.env;
+const port = +process.env.PORT || 4000;
 
-app.listen(PORT, () => console.log(`Port ${PORT}`));
+init().then(() => {
+  app.listen(port, () => {
+    console.log(`Server is listening on port ${port}.`);
+  });
+});
