@@ -7,4 +7,7 @@ export default class Classes {
 
   @Column()
     name: string;
+
+  @Column()
+    period: number;
 }

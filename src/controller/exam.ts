@@ -1,7 +1,27 @@
 import { Request, Response } from 'express';
-import insertExamService from '../service/exam';
+import {
+  getExamsByClassIdService, getExamsByTeacherIdService, getExamsService, insertExamService,
+} from '../service/exam';
 
-export default async function insertExam(req: Request, res: Response) {
+export async function getExams(req: Request, res: Response) {
+  const result = await getExamsService();
+
+  res.send(result);
+}
+
+export async function getExamsByTeacherId(req: Request, res: Response) {
+  const result = await getExamsByTeacherIdService(req.body.id);
+
+  return res.send(result);
+}
+
+export async function getExamsByClassId(req: Request, res: Response) {
+  const result = await getExamsByClassIdService(req.body.id);
+
+  return res.send(result);
+}
+
+export async function insertExam(req: Request, res: Response) {
   const {
     teacherId, classId, type, name, link,
   } = req.body;

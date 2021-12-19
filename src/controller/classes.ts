@@ -1,7 +1,13 @@
 import { Request, Response } from 'express';
-import getClassesByTeacherIdService from '../service/classes';
+import { getClassesByTeacherIdService, getClassesService } from '../service/classes';
 
-export default async function getClassesByTeacherId(req: Request, res: Response) {
+export async function getClasses(req: Request, res: Response) {
+  const result = await getClassesService();
+
+  res.send(result);
+}
+
+export async function getClassesByTeacherId(req: Request, res: Response) {
   const { teacherId } = req.body;
 
   const result = await getClassesByTeacherIdService(teacherId);

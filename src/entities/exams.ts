@@ -30,5 +30,5 @@ export default class Exams {
 
   @OneToOne(() => Classes, { eager: true })
   @JoinColumn({ name: 'class_id' })
-    class: Classes;
+    classes: Classes;
 }
