@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx ts-node src/server.ts",
+    "start": "NODE_ENV=production NODE_TLS_REJECT_UNAUTHORIZED=0 node dist/server.js",
     "build": "NODE_ENV=production npx tsc --outDir dist",
     "dev": "nodemon --watch 'src/' --exec 'ts-node src/server.ts' -e ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest -i --watch"
   },
   "keywords": [],
   "author": "",
